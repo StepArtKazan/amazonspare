@@ -81,7 +81,7 @@ async function fetchProductList(url) {
     console.log(result, ' result');
 
     return result
-     setInterval (() =>{start()}, 10450); 
+     
 }
 
 fetchProductList(url)
