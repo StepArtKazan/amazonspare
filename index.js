@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 const url = 'https://www.amazon.com/s?k=stand+up+desks&ref=nb_sb_noss';
-const port = 3008;
+const port = 3007;
 
 
 app.get('/', async (req, res) => {
