@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const express = require('express');
 const app = express();
 
-const url = 'https://www.amazon.com/s?k=stand+up+desks&ref=nb_sb_noss';
+const url = 'https://www.amazon.com/s?k=stand&ref=nb_sb_noss_2';
 const port = 3002;
 
 
