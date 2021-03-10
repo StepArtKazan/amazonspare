@@ -3,12 +3,12 @@ const express = require('express');
 const app = express();
 
 // const url = 'https://www.amazon.com/s?k=stand+up+desks&ref=nb_sb_noss';
-const port = 3005;
+//const port = 3005;
 
 app.get("/", (req, res) => {
   res.send("Hello Word")
 })
-app.listen(3005)
+app.listen(80)
 //
 // app.get('/', async (req, res) => {
 //     console.log('get parse info');
