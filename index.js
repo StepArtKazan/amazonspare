@@ -1,14 +1,26 @@
 const puppeteer = require('puppeteer');
+const express = require('express');
+const app = express();
 
 const url = 'https://www.amazon.com/s?k=stand+up+desks&ref=nb_sb_noss';
+const port = 3002;
 
+
+app.get('/', async (req, res) => {
+    console.log('get parse info');
+    const result = await fetchProductList(url);
+
+    res.send(JSON.stringify(result));
+});
+
+app.listen(port);
 
 async function fetchProductList(url) {
     let startTime = Date.now();
 
     const browser = await puppeteer.launch({
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        defaultViewport: null
     });
 
     const page = await browser.newPage();
@@ -18,7 +30,7 @@ async function fetchProductList(url) {
     // await page.waitForSelector('div.s-desktop-width-max');
     await page.waitFor('div[data-cel-widget^="search_result_"]');
 
-      const result = await page.evaluate(() => {
+    const result = await page.evaluate(() => {
         // counts total number of products
         let totalSearchResults = Array.from(document.querySelectorAll('div[data-cel-widget^="search_result_"]')).length;
 
@@ -81,7 +93,7 @@ async function fetchProductList(url) {
     console.log(result, ' result');
 
     return result
-     
+
 }
 
-fetchProductList(url)
+//fetchProductList(url)
